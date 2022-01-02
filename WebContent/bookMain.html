@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/Style.css">
+<script type="text/javascript">
+function fnSubmit() {
+	if (confirm("도서정보를 입력하시겠습니까?")) {
+		return true;
+	}
+	return false;
+}
+
+function fnReset() {
+	var msg ="작성하신 내용이 초기화 됩니다.";
+	msg += "\n계속 진행하시겠습니까?";
+	if(confirm(msg)){
+		return true;
+	}
+	return false;
+}
+
+//하이픈(-) 자동생성
+function test(e) {
+    var number = e.value.replace(/[^0-9]/g, "");
+    var temp = "";
+
+    if (number.length < 4) {
+        return number;
+    } else if (number.length < 5) {
+        temp += number.substr(0, 3);
+        temp += "-";
+        temp += number.substr(3);
+    } else if (number.length < 9) {
+        temp += number.substr(0, 3);
+        temp += "-";
+        temp += number.substr(3, 2);
+        temp += "-";
+        temp += number.substr(5);
+    } else if (number.length < 12) {
+        temp += number.substr(0, 3);
+        temp += "-";
+        temp += number.substr(3, 2);
+        temp += "-";
+        temp += number.substr(5,4);
+        temp += "-";
+        temp += number.substr(9);
+    }else if (number.length < 13) {
+        temp += number.substr(0, 3);
+        temp += "-";
+        temp += number.substr(3, 2);
+        temp += "-";
+        temp += number.substr(5,4);
+        temp += "-";
+        temp += number.substr(9,3);
+        temp += "-";
+        temp += number.substr(12,1);
+    }else {
+        temp += number.substr(0, 3);
+        temp += "-";
+        temp += number.substr(3, 2);
+        temp += "-";
+        temp += number.substr(5, 4);
+        temp += "-";
+        temp += number.substr(9, 3);
+        temp += "-";
+        temp += number.substr(12, 1);
+    }
+
+    e.value = temp;
+}
+
+</script>
+</head>
+<body>
+<div align="center">
+<h3>[도서정보 입력]</h3>
+<form action="is.do" method="post" 
+				onsubmit="return fnSubmit()" onreset="return fnReset()">
+<table border="1">
+	<tr>
+		<th>제목</th>
+		<td><input type="text" name="bookTitle" class="insertVal" required="required"></td>
+	</tr>
+	<tr>
+		<th>저자</th>
+		<td><input type="text" name="bookWriter" class="insertVal" required="required" /></td>
+	</tr>
+	<tr>
+		<th>ISBN</th>
+		<td><input class="insertVal" type="text" name="bookIsbn" id="isbn" required="required" pattern="\d{3}-\d{2}-\d{4}-\d{3}-\d{1}"
+				   placeholder="XXX-XX-XXXX-XXX-X" onkeyup="test(this)"/></td>
+	</tr>
+	<tr>
+		<th>출판사</th>
+		<td><input  class="insertVal" type="text"name="bookCompany"required="required"></td>
+	</tr>
+	<tr>
+		<th>단가</th>
+		<td><input class="insertVal" type="number" name="bookCost" required="required"min="0" /></td>
+	</tr>
+	<tr>
+		<th>수량</th>
+		<td><input  class="insertVal" type="number" name="bookQty"required="required"min="0" /></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center">
+			<button type="submit" formmethod="post" class="button">도서정보입력</button>
+			<!-- <input type = "submit" value="도서정보입력"> -->
+			<input type = "reset" value="입력정보취소">
+			<input type = "button" value="목록보기" onclick="location.href='gals.do'">
+		</td>
+	</tr>
+</table>
+</form>	
+</div>
+</body>
+</html>
