@@ -43,7 +43,7 @@ public class GetAllListServlet extends HttpServlet {
 		
 		if(list.size() == 0) {
 			out.println("<tr align = 'center'>");
-			out.println("<td colspan='8'>회원목록이 없습니다</td>");
+			out.println("<td colspan='8'>등록된 도서가 없습니다</td>");
 			out.println("</tr>");
 		}else {
 			for (bookDTO dto : list) {
@@ -65,9 +65,9 @@ public class GetAllListServlet extends HttpServlet {
 		
 		out.println("<tr align = 'center'>");
 		out.println("<td colspan='8'>");
-		out.println("<a href='bokMain.html'>회원가입화면</a>");
+		out.println("<a href='bokMain.html'>메인화면</a>");
 		out.println("&nbsp;&nbsp;&nbsp;");
-		out.println("<input type='button' value='회원가입화면' onclick='location.href=\"bookMain.html\"'/>" );
+		out.println("<input type='button' value='메인화면' onclick='location.href=\"bookMain.html\"'/>" );
 		out.println("</td>");
 		out.println("</tr>");
 		

@@ -35,15 +35,15 @@ public class InsertServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();	//출력스트림
 		
 		if(succ > 0) {
-			out.println("<script>alert('회원가입 성공');</script>");
-			out.println("<a href='bookMain.html'>회원가입 화면으로 이동</a>");
+			out.println("<script>alert('도서 등록 성공');</script>");
+			out.println("<a href='bookMain.html'>도서 등록 화면으로 이동</a>");
 			out.println("<br><br>");
-			out.println("<a href='gals.do'>전체회원 목록보기</a>");
+			out.println("<a href='gals.do'>전체 도서 목록 보기</a>");
 		}else {
-			out.println("<script>alert('회원가입 실패');</script>");
-			out.println("<a href='bookMain.html'>회원가입 화면으로 이동</a>");
+			out.println("<script>alert('도서 등록 실패');</script>");
+			out.println("<a href='bookMain.html'>도서 등록 화면으로 이동</a>");
 			out.println("<br><br>");
-			out.println("<a href='gals.do'>전체회원 목록보기</a>");
+			out.println("<a href='gals.do'>전체 도서 목록 보기</a>");
 		}
 	}
 
