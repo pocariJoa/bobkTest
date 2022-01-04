@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/Style.css">
+
 <script type="text/javascript">
+//css를 따로 만들어꾸며보려했으나 저의 부족한센스로는 흉물이 되어 가운데정렬만 하였습니다
+
+//도서정보 입력전 확인
 function fnSubmit() {
 	if (confirm("도서정보를 입력하시겠습니까?")) {
 		return true;
@@ -12,9 +16,9 @@ function fnSubmit() {
 	return false;
 }
 
+//입력정보 취소 전 확인
 function fnReset() {
-	var msg ="작성하신 내용이 초기화 됩니다.";
-	msg += "\n계속 진행하시겠습니까?";
+	var msg ="정말 취소하시겠습니까?";
 	if(confirm(msg)){
 		return true;
 	}
@@ -22,6 +26,8 @@ function fnReset() {
 }
 
 //하이픈(-) 자동생성
+//제가 한 방법은 너무 복잡하고 어렵게한거같습니다
+//좋은방법을 가르쳐주시면 감사하겠습니다
 function test(e) {
     var number = e.value.replace(/[^0-9]/g, "");
     var temp = "";
@@ -89,7 +95,8 @@ function test(e) {
 	</tr>
 	<tr>
 		<th>ISBN</th>
-		<td><input class="insertVal" type="text" name="bookIsbn" id="isbn" required="required" pattern="\d{3}-\d{2}-\d{4}-\d{3}-\d{1}"
+		<td><input class="insertVal" type="text" name="bookIsbn" id="isbn" required="required" 
+				   pattern="\d{3}-\d{2}-\d{4}-\d{3}-\d{1}" 
 				   placeholder="XXX-XX-XXXX-XXX-X" onkeyup="test(this)"/></td>
 	</tr>
 	<tr>
@@ -109,7 +116,7 @@ function test(e) {
 			<button type="submit" formmethod="post" class="button">도서정보입력</button>
 			<!-- <input type = "submit" value="도서정보입력"> -->
 			<input type = "reset" value="입력정보취소">
-			<input type = "button" value="목록보기" onclick="location.href='gals.do'">
+			<input type = "button" value="전체도서보기" onclick="location.href='gals.do'">
 		</td>
 	</tr>
 </table>

@@ -38,7 +38,6 @@ public class GetAllListServlet extends HttpServlet {
 		out.println("<th>수량</th>");
 		out.println("<th>가격</th>");
 		out.println("<th>삭제</th>");
-		out.println("<th>삭제</th>");
 		out.println("</tr>");
 		
 		if(list.size() == 0) {
@@ -55,23 +54,15 @@ public class GetAllListServlet extends HttpServlet {
 				out.println("<td>" + dto.getBookcost()+"</td>");
 				out.println("<td>" + dto.getBookqty()+"</td>");
 				out.println("<td>" + dto.getBookprice()+"</td>");
-				out.println("<td><a href='ds.do?bookIsbn="+dto.getBookisbn()+"'>삭제</a></td>");
 				out.println("<td>");
 				out.println("<input type='button' value='삭제' onclick='location.href=\"ds.do?bookIsbn=" + dto.getBookisbn() + "\"' />");
 				out.println("</td>");
 				out.println("</tr>");
 			}
 		}
-		
-		out.println("<tr align = 'center'>");
-		out.println("<td colspan='8'>");
-		out.println("<a href='bokMain.html'>메인화면</a>");
-		out.println("&nbsp;&nbsp;&nbsp;");
-		out.println("<input type='button' value='메인화면' onclick='location.href=\"bookMain.html\"'/>" );
-		out.println("</td>");
-		out.println("</tr>");
-		
 		out.println("</table>");
+		out.println("<br>");
+		out.println("<a href='bookMain.html'>메인화면</a>");
 		out.println("</div>");
 		out.println("</body>");
 		

@@ -17,14 +17,12 @@ public class DeleteServlet extends HttpServlet {
 		throws ServletException, IOException {
 		// 삭제하기
 		
-		// ① 클라이언트의 요청을 받는다 : 폼에서 입력한 매개변수를 가져온다.
 		request.setCharacterEncoding("utf-8");
 		String bookIsbn = request.getParameter("bookIsbn");
 		
 		bookDAO dao = new bookDAO();
 		int succ = dao.bookDelete(bookIsbn);
 		
-		// ③ 프리젠테이션 로직 : 결과를 응답(html)
 		response.setContentType("text/html; charset=utf-8"); //MIME Type
 		PrintWriter out = response.getWriter();	//출력스트림
 		if (succ > 0) {
